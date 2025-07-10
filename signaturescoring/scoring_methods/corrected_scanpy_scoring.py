@@ -1,10 +1,10 @@
-from typing import Optional, Sequence
+from typing import Optional, Sequence, Union
 
 import numpy as np
 import pandas as pd
 import scanpy as sc
 from anndata import AnnData
-from scanpy._utils import AnyRandom, _check_use_raw
+from scanpy._utils import _check_use_raw
 
 from signaturescoring.utils.utils import nanmean
 
@@ -16,7 +16,7 @@ def score_genes(
         gene_pool: Optional[Sequence[str]] = None,
         n_bins: int = 25,
         score_name: str = "corrected_scanpy_score",
-        random_state: AnyRandom = 0,
+        random_state: Union[int, None] = 0,
         copy: bool = False,
         use_raw: Optional[bool] = None,
         verbose: int = 0,
